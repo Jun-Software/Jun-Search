@@ -37,5 +37,3 @@ def search():
     if content is None:
         return redirect('/')
     return render_template('search.html', results = query(content, read_pages))
-
-app.run()
