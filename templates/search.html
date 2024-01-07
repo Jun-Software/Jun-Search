@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../static/bootstrap.min.css">
+    </head>
+    <body>
+        <form action="/search" class="m-2 p-3">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" name="query">
+                <button class="input-group-text btn btn-primary" id="basic-addon2">Search</button>
+            </div>
+        </form>
+        <div data-bs-spy="scroll" data-bs-smooth-scroll="true" class="p-3">
+            {% for result in results %}
+                <span class="card m-1 p-2">
+                    <a href="{{ result['href'] }}"><h5>{{ result['title'] }}</h5></a>
+                </span>
+            {% endfor %}
+        </div>
+    </body>
+</html>
