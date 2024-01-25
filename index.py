@@ -21,7 +21,11 @@ def query(content, page):
         href = (tree.xpath('//*[@id="rso"]/div/div/div/div[1]/div/div/span/a/@href') + tree.xpath('//*[@id="rso"]/div/div/div/div/div/div/div[1]/div[1]/div/div/span/a/@href'))
         for i in range(len(title)):
             result.append({'title': title[i], 'href': href[i]})
-    return list(set(result))
+    set_result = []
+    for i in result:
+        if i not in set_result:
+            set_result.append(i)
+    return set_result
 
 app = Flask(__name__)
 
