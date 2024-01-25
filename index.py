@@ -37,4 +37,4 @@ def search():
         return redirect('/')
     if page is None:
         page = 1
-    return render_template('search.html', results = query(content, page), page = page)
+    return render_template('search.html', results = query(content, page), page = page, query = content)
