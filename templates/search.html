@@ -16,6 +16,15 @@
                     <a href="{{ result['href'] }}"><h5>{{ result['title'] }}</h5></a>
                 </span>
             {% endfor %}
+            <div class="btn-group" role="group" aria-label="Basic outlined example">
+                {% if page == 1 %}
+                <button type="button" class="btn btn-outline-primary">Prev Page</button>
+                {% else %}
+                <button type="button" class="btn btn-outline-primary" disabled="disabled">Prev Page</button>
+                {% endif %}
+                <button type="button" class="btn btn-outline-primary">{{ page }}</button>
+                <button type="button" class="btn btn-outline-primary">Next Page</button>
+            </div>
         </div>
     </body>
 </html>
