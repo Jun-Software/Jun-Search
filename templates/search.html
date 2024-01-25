@@ -20,10 +20,10 @@
                 {% if page == 1 %}
                 <a type="button" class="btn btn-outline-primary" disabled="disabled">Prev Page</a>
                 {% else %}
-                <a type="button" class="btn btn-outline-primary" href="/search?query={{ query }}&page={{ page - 1 }}">Prev Page</a>
+                <a type="button" class="btn btn-outline-primary" href="/search?query={{ query }}&page={{ str(int(page) - 1) }}">Prev Page</a>
                 {% endif %}
                 <a type="button" class="btn btn-outline-primary">{{ page }}</a>
-                <a type="button" class="btn btn-outline-primary" href="/search?query={{ query }}&page={{ page + 1 }}">Next Page</a>
+                <a type="button" class="btn btn-outline-primary" href="/search?query={{ query }}&page={{ str(int(page) + 1) }}">Next Page</a>
             </div>
         </div>
     </body>
