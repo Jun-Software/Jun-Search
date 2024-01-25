@@ -23,7 +23,7 @@
                 <a type="button" class="btn btn-outline-primary" href="/search?query={{ query }}&page={{ str(int(page) - 1) }}">Prev Page</a>
                 {% endif %}
                 <a type="button" class="btn btn-outline-primary">{{ str(int(page) + 1) }}</a>
-                <a type="button" class="btn btn-outline-primary" href="/search?query={{ query }}&page={{ str(int(page) + 2) }}">Next Page</a>
+                <a type="button" class="btn btn-outline-primary" href="/search?query={{ query }}&page={{ str(int(page) + 1) }}">Next Page</a>
             </center>
         </div>
     </body>
