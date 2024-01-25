@@ -4,29 +4,35 @@
         <link rel="stylesheet" href="../static/bootstrap.min.css">
     </head>
     <body>
-        <form action="/search" class="m-2 p-3">
+        <form action="/search" style="margin-top: 1rem; margin-left: 1rem; margin-right: 1rem;">
             <div class="input-group mb-3">
                 <input type="text" class="form-control" name="query">
-                <button class="input-group-text btn btn-primary" id="basic-addon2">Search</button>
+                <button class="input-group-text btn btn-primary" id="basic-addon2">搜索</button>
             </div>
         </form>
-        <div data-bs-spy="scroll" data-bs-smooth-scroll="true" class="p-3">
+        <div data-bs-spy="scroll" data-bs-smooth-scroll="true" style="margin-left: 1rem; margin-right: 1rem;">
             {% for result in results %}
                 <span class="card m-1 p-2">
                     <a href="{{ result['href'] }}"><h5>{{ result['title'] }}</h5></a>
+                    <a style="font-size: 15px;">{{ result['href'] }}</a>
                 </span>
             {% endfor %}
+        </div>
+        <footer>
             <center>
                 <div class="btn-group" role="group" aria-label="Basic outlined example">
                     {% if int(page) == 0 %}
-                        <button type="button" class="btn btn-outline-primary" disabled="disabled">Prev Page</button>
+                    <button type="button" class="btn btn-outline-primary" disabled="disabled">上一页</button>
                     {% else %}
-                        <a type="button" class="btn btn-outline-primary" href="/search?query={{ query }}&page={{ str(int(page) - 1) }}">Prev Page</a>
+                    <a type="button" class="btn btn-outline-primary"
+                        href="/search?query={{ query }}&page={{ str(int(page) - 1) }}">上一页</a>
                     {% endif %}
                     <button type="button" class="btn btn-outline-primary">{{ str(int(page) + 1) }}</button>
-                    <a type="button" class="btn btn-outline-primary" href="/search?query={{ query }}&page={{ str(int(page) + 1) }}">Next Page</a>
+                    <a type="button" class="btn btn-outline-primary"
+                        href="/search?query={{ query }}&page={{ str(int(page) + 1) }}">下一页</a>
                 </div>
+                <p style="color: grey; font-size: 12px;">搜索结果均为从谷歌爬取</p>
             </center>
-        </div>
+        </footer>
     </body>
 </html>
