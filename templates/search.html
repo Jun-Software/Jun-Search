@@ -16,15 +16,17 @@
                     <a href="{{ result['href'] }}"><h5>{{ result['title'] }}</h5></a>
                 </span>
             {% endfor %}
-            <div class="btn-group" role="group" aria-label="Basic outlined example">
-                {% if page == 1 %}
-                <a type="button" class="btn btn-outline-primary" disabled="disabled">Prev Page</a>
-                {% else %}
-                <a type="button" class="btn btn-outline-primary" href="/search?query={{ query }}&page={{ page - 1 }}">Prev Page</a>
-                {% endif %}
-                <a type="button" class="btn btn-outline-primary">{{ page }}</a>
-                <a type="button" class="btn btn-outline-primary" href="/search?query={{ query }}&page={{ page + 1 }}">Next Page</a>
-            </div>
+            <center>
+                <div class="btn-group" role="group" aria-label="Basic outlined example">
+                    {% if int(page) == 0 %}
+                        <button type="button" class="btn btn-outline-primary" disabled="disabled">Prev Page</button>
+                    {% else %}
+                        <a type="button" class="btn btn-outline-primary" href="/search?query={{ query }}&page={{ str(int(page) - 1) }}">Prev Page</a>
+                    {% endif %}
+                    <button type="button" class="btn btn-outline-primary">{{ str(int(page) + 1) }}</button>
+                    <a type="button" class="btn btn-outline-primary" href="/search?query={{ query }}&page={{ str(int(page) + 1) }}">Next Page</a>
+                </div>
+            </center>
         </div>
     </body>
 </html>
