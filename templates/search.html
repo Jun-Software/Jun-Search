@@ -18,12 +18,12 @@
             {% endfor %}
             <div class="btn-group" role="group" aria-label="Basic outlined example">
                 {% if page == 1 %}
-                <button type="button" class="btn btn-outline-primary">Prev Page</button>
+                <a type="button" class="btn btn-outline-primary" disabled="disabled">Prev Page</a>
                 {% else %}
-                <button type="button" class="btn btn-outline-primary" disabled="disabled">Prev Page</button>
+                <a type="button" class="btn btn-outline-primary" href="/search?query={{ query }}&page={{ page - 1 }}">Prev Page</a>
                 {% endif %}
-                <button type="button" class="btn btn-outline-primary">{{ page }}</button>
-                <button type="button" class="btn btn-outline-primary">Next Page</button>
+                <a type="button" class="btn btn-outline-primary">{{ page }}</a>
+                <a type="button" class="btn btn-outline-primary" href="/search?query={{ query }}&page={{ page + 1 }}">Next Page</a>
             </div>
         </div>
     </body>
